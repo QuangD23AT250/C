@@ -12,7 +12,7 @@ void ptbac2(long long l, long long m, long long n)
 		        } 
 		  	else 
 			  {
-			  	printf("NONE\n");
+			  	printf("None\n");
 				if (m>0) printf("+");
 				else printf("-");
 		      }
@@ -63,43 +63,66 @@ int main()
 	else 
 	{
 	  	
-			long long b2= 2*b;
-			long long a2= 3*a;
+			long long o= 2*b;
+			long long i= 3*a;
 			
 			
 			// delta y'
-		    double delta = b2 * b2 - 4 * a2 * c;
+		    double delta = o * o - 4 * i * c;
 	
 	  
 	    	if (delta > 0) 
 			{
 		        
-		        x1 = (-b2 + sqrt(delta)) / (2 * a2);
-		        x2 = (-b2 - sqrt(delta)) / (2 * a2);
-		        printf("x1 = %.3lf\n", x1);
-		        printf("x2 = %.3lf\n", x2);
-	        
-		        if ( 6*a*x1 +2*b > 0 )
-		        { 
-		          double cty= a*pow(x1,3)+b*pow(x1,2)+c*x1+d;
-		          double cdy= a*pow(x2,3)+b*pow(x2,2)+c*x2+d;
-		         printf("CD : (%.3lf, %.3lf)\n",x2,cdy);
-		         printf("CT : (%.3lf, %.3lf)",x1,cty);
+		        x1 = (-o + sqrt(delta)) / (2 * i);
+		        x2 = (-o - sqrt(delta)) / (2 * i);
+		        double f = (x1+x2)/2;
+		        if (x1>x2)
+		        {
+		        	
+		        	if (3*a*f*f + 2*b*f + c < 0)
+		        	{
+			          double yx1= a*pow(x1,3)+b*pow(x1,2)+c*x1+d;
+			          double yx2= a*pow(x2,3)+b*pow(x2,2)+c*x2+d;
+			         printf("CD: (%.3lf, %.3lf)\n",x2,yx2);
+			         printf("CT: (%.3lf, %.3lf)",x1,yx1);
+					}
+					else 
+					{
+					  double yx1= a*pow(x1,3)+b*pow(x1,2)+c*x1+d;
+			          double yx2= a*pow(x2,3)+b*pow(x2,2)+c*x2+d;
+			         
+			         printf("CT: (%.3lf, %.3lf)\n",x2,yx2);
+			         printf("CD: (%.3lf, %.3lf)",x1,yx1);
+					}		        			
 				}
-				if ( 6*a*x1 +2*b < 0 )
-		        { 
-		          double cty= a*pow(x2,3)+b*pow(x2,2)+c*x2+d;
-		          double cdy= a*pow(x1,3)+b*pow(x1,2)+c*x1+d;
-		         printf("CD : (%.3lf, %.3lf)\n",x1,cdy);
-		         printf("CT : (%.3lf, %.3lf)",x2,cty);
+				else 
+				{
+				
+		        	if (3*a*f*f + 2*b*f + c < 0)
+		        	{
+			          double yx1= a*pow(x1,3)+b*pow(x1,2)+c*x1+d;
+			          double yx2= a*pow(x2,3)+b*pow(x2,2)+c*x2+d;
+			         printf("CD: (%.3lf, %.3lf)\n",x1,yx1);
+			         printf("CT: (%.3lf, %.3lf)",x2,yx2);
+					}
+					else 
+					{
+					  double yx1= a*pow(x1,3)+b*pow(x1,2)+c*x1+d;
+			          double yx2= a*pow(x2,3)+b*pow(x2,2)+c*x2+d;
+			          printf("CT: (%.3lf, %.3lf)\n",x1,yx1);
+			         printf("CD: (%.3lf, %.3lf)\n",x2,yx2);
+			        
+					}		        			     			
+					
 				}
-	        
-	    	} 
+		        
+		    }
 	    	
 			else 
 			{
 	        
-	        printf("NONE");
+	        printf("None\n");
 	        if (a > 0) printf("+");
 	        else printf("-");
 	        
