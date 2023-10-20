@@ -74,8 +74,8 @@ int main()
 	    	if (delta > 0) 
 			{
 		        
-		        x1 = (-b2 + sqrt(delta)) / (2.0 * a2);
-		        x2 = (-b2 - sqrt(delta)) / (2.0 * a2);
+		        x1 = (-b2 + sqrt(delta)) / (2 * a2);
+		        x2 = (-b2 - sqrt(delta)) / (2 * a2);
 		        printf("x1 = %.3lf\n", x1);
 		        printf("x2 = %.3lf\n", x2);
 	        
