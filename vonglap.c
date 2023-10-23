@@ -12,11 +12,11 @@
  	    if(b>max2) max2=b;
  		
  		ta= ta+a;
-		tb= tb+b; 
+		 tb= tb+b; 
 	 }
 	 tba=ta/n;
 	 tbb=tb/n;
-	 printf("%lf %lld %.2lf %.2lf",max1,max2,tba,tbb);
+	 printf("%lld %lld %.2lf %.2lf",(long long)max1,(long long) max2,tba,tbb);
 	 return 0;
  }
  
